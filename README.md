@@ -64,6 +64,8 @@ perl XBruteForcer.pl -l list.txt -p passwords.txt
 Download [Termux](https://play.google.com/store/apps/details?id=com.termux)
 
 ```bash
+cpan install LWP::UserAgent
+cpan install HTTP::Request
 git clone https://github.com/Moham3dRiahi/XBruteForcer.git
 cd XBruteForcer
 perl XBruteForcer.pl -l list.txt -p passwords.txt 
@@ -72,16 +74,11 @@ perl XBruteForcer.pl -l list.txt -p passwords.txt
 ## Installation [Windows ](https://wikipedia.org/wiki/Microsoft_Windows)[![alt tag](http://icons.iconarchive.com/icons/tatice/cristal-intense/32/Windows-icon.png)](https://fr.wikipedia.org/wiki/Microsoft_Windows)
 ```bash
 Download Perl
-
 Download XBruteForcer
-
 Extract XBruteForcer into Desktop
-
 Open CMD and type the following commands:
-
 cd Desktop/XBruteForcer-master/
-
- perl XBruteForcer.pl -l list.txt -p passwords.txt 
+perl XBruteForcer.pl -l list.txt -p passwords.txt 
 ```
 <h2>Version</h2>
 <strong>Current version is 1.2</strong>
