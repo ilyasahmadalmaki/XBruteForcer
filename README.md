@@ -8,9 +8,9 @@
 
 <img src="http://i.imgur.com/kSmeHEn.jpg" data-canonical-src="https://i.imgur.com/DxZyQit.jpg" style="max-width:100%;">
 
-<h2>Simple brute force script 
+<h2>Simple brute force script </h2>
 
-[1] WordPress (Auto Detect Username)</h2><br>
+[1] WordPress (Auto Detect Username)<br>
 [2] Joomla<br>
 [3] DruPal<br>
 [4] OpenCart<br>
