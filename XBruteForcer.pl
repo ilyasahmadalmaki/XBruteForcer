@@ -40,7 +40,7 @@ print color('bold red'),"  / . \\ ";
 print color('bold white'),"  | |_) | |  | |_| | ||  __/  | | | (_) | | | (_|  __/ | \n";
 print color('bold red')," /_/ \\_\\ "; 
 print color('bold white')," |____/|_|   \\__,_|\\__\\___|  |_|  \\___/|_|  \\___\\___|_|  ";   
-print color('bold red'),"v1.1\n\n";
+print color('bold red'),"v1.3\n\n";
 print color('bold red'),"\t\t        [";
 print color('bold white'),"Coded BY Mohamed Riahi";
 print color('bold red'),"]\n";
