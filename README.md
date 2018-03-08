@@ -41,7 +41,7 @@
 </tbody></table>
 <h2>Example</h2>
 <code>perl XBruteForcer.pl -l list.txt -p passwords.txt</code>
-<br><br><strong>for coloring in windows Add This Line</strong><br>
+<br>
 <h2>BUG ?</h2>
 <ul>
 <li>Submit new issue</li>
