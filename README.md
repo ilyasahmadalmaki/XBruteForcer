@@ -2,7 +2,7 @@
 <p><a href="https://github.com/Moham3dRiahi/XBruteForcer"><img src="https://img.shields.io/badge/XBruteForcer-1.2-brightgreen.svg" alt="Version" data-canonical-src="https://img.shields.io/badge/XAttacker-2.1-brightgreen.svg?maxAge=259200" style="max-width:100%;"></a>
 <a href="https://github.com/Moham3dRiahi/XBruteForcer"><img src="https://img.shields.io/badge/Release-Stable-orange.svg" alt="Stage" data-canonical-src="https://img.shields.io/badge/Release-Stable-orange.svg" style="max-width:100%;"></a>
 <a href="https://github.com/Moham3dRiahi/XBruteForcer"><img src="https://img.shields.io/badge/Supported%20OS-Linux%2FWindows-brightgreengreen.svg" alt="Build" data-canonical-src="https://img.shields.io/badge/Supported%20OS-Linux%2FWindows-brightgreengreen.svg" style="max-width:100%;"></a></p>
-<p> Brute Force Tool 🔓 WP , Joomla , DruPal , OpenCart , Magento </p>
+<p> Brute Force Tool 🔓 WordPress , Joomla , DruPal , OpenCart , Magento </p>
 
 <h2>XBruteForcer</h2>
 
@@ -42,8 +42,6 @@
 <h2>Example</h2>
 <code>perl XBruteForcer.pl -l list.txt -p passwords.txt</code>
 <br><br><strong>for coloring in windows Add This Line</strong><br>
-<code>use Win32::Console::ANSI;</code>
-<br><img src="https://media.giphy.com/media/hVTXBi1FCdL0I/giphy.gif" alt="Sublist3r" title="Sublist3r in action" data-canonical-src="https://media.giphy.com/media/hVTXBi1FCdL0I/giphy.gif" style="max-width:100%;">
 <h2>BUG ?</h2>
 <ul>
 <li>Submit new issue</li>
