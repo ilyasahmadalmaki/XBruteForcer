@@ -79,10 +79,7 @@ cd Desktop/XBruteForcer-master/
 perl XBruteForcer.pl -l list.txt -p passwords.txt 
 ```
 <h2>Version</h2>
-<strong>Current version is 1.2</strong>
+<strong>Current version is 1.3</strong>
 <strong>What's New </strong>
 <p>• speed up<p>
-<p>• Bug fixes<p>
-
-<strong>version 1.1</strong>
 <p>• Bug fixes<p>
