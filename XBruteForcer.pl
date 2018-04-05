@@ -125,7 +125,6 @@ print color('bold white'),"$site";
 joomla();
 }
 }
-
 if($number eq '3')
 {
 
@@ -144,7 +143,6 @@ print color('bold white'),"$site";
 drupal();
 }
 }
-
 if($number eq '4')
 {
 
@@ -163,7 +161,6 @@ print color('bold white'),"$site";
 opencart();
 }
 }
-
 if($number eq '5')
 {
 
