@@ -108,10 +108,8 @@ print color('bold white'),"$site";
 wpuser();
 }
 }
-
 if($number eq '2')
 {
-
 open (THETARGET, "<$list") || die "[-] Can't open the file";
 @TARGETS = <THETARGET>;
 close THETARGET;
